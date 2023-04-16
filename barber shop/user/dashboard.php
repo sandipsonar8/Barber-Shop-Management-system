@@ -1,0 +1,144 @@
+<?php
+require 'config.php';
+session_start();
+$uid=$_SESSION['user'];
+if($uid!=""){
+
+}
+else{
+  header('location:../index.php');
+}
+$sql = "SELECT * FROM user WHERE uid='$uid' ";
+$result = $conn->query($sql);
+  $row = $result->fetch_assoc();
+?>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"> 
+    <link rel="stylesheet"  href="css/style.css">
+    <link rel="stylesheet"  href="fontawesome-free-5.13.1-web/css/all.css">
+    <title>Ashirvad Hair Salon/Spa</title>
+    <link rel="shortcut icon" type="image/png" href="imgs/new_logo_black.png">
+  </head>
+  <body class="bg-secondary p-2 text-dark bg-opacity-10">
+    
+  <header>
+   
+   <nav class="navbar navbar-dark bg-dark navbar-expand-md">
+	 <a class="nav-brand text-white" href="dashboard.php" >
+	 Ashirvad Hair Salon/Spa
+		 </a>
+
+	 <button data-toggle="collapse" data-target="#navbarToggler" type="button" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+	 <div class="collapse navbar-collapse" id="navbarToggler">
+
+	 <ul class="navbar-nav ml-auto">
+   <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Hair Cut
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item " href="haircut.php">Boys</a>
+          <a class="dropdown-item" href="haircut1.php">Girls</a>
+          
+        </div>
+      </li>
+	  <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Hair Straightening
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item " href="hairstraightening.php">Boys</a>
+          <a class="dropdown-item" href="hairstraightening1.php">Girls</a>
+          
+        </div>
+      </li>  
+	  <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		Hair Color
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		<a class="dropdown-item " href="haircolor.php">Boys</a>
+          <a class="dropdown-item" href="haircolor1.php">Girls</a>
+          
+        </div>
+      </li>  
+	  <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		Facial
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		<a class="dropdown-item" href="facial.php">Boys</a>
+          <a class="dropdown-item" href="facial1.php">Girls</a>
+          
+        </div>
+      </li>  
+	  <li class="nav-item ">
+			 <a href="shave.php" class="nav-link">Shaves</a>
+		   </li> 
+		   <li class="nav-item ">
+			 <a href="bleech.php" class="nav-link">Bleech</a>
+		   </li> 
+
+		    <li class="nav-item ">
+			 <a href="mustach.php" class="nav-link">Mustach</a>
+		   </li> 
+
+		    <li class="nav-item">
+			 <a href="spa.php" class="nav-link">Spa</a>
+		   </li> 		   
+	  
+           <li class="nav-item">
+			 <a href="bookings.php" class="nav-link">Bookings</a>
+		   </li> 	 
+
+		   <li class="nav-item ">
+			 <a href="logout.php" class="nav-link">Logout</a>
+		   </li> 
+		   
+
+		 </ul>
+
+
+	   </div>
+   </nav>
+
+</header>
+
+<div class="container mt-5">
+  <div class="row">
+	<div class="col mt-5 text-center text-white">
+	  <h1>Welcome To  Ashirvad Hair Salon/Spa</h1>
+	  <h1 class="mt-5">Welcome <?= $row['fname']." ".$row['lname'] ?></h1>
+	</div>
+  </div>
+</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="bootstrap/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+	<style type="text/css">
+  *{
+  margin: 0%;
+  
+}
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+
+.dropdown>.dropdown-toggle:active {
+  /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
+</style>
+</body>
+</html>

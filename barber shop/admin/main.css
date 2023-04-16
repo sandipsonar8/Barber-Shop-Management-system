@@ -1,0 +1,11 @@
+body{
+        background-image: url('../admin/image/_2.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+      }
+
+.navbar {
+      border-radius: 20px;
+    }
